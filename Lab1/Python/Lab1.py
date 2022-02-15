@@ -1,11 +1,11 @@
-def inputfile(path, num):
-    file = open(path, "w")
-    string = input("Введіть текст " + str(num) + "-го файлу:\n")
-    while chr(1) not in string: #Ознака кінця введення файлу Ctrl+A
-        file.write(string+'\n')
-        string = input()
-    file.close()
+from func import *
 
-inputfile('Lab1/Python/input1.txt', 1)
-inputfile('Lab1/Python/input2.txt', 2)
-outfile = open('Lab1/Python/output.txt', 'w')
+path1 = 'Lab1/Python/input1.txt'
+path2 = 'Lab1/Python/input2.txt'
+path3 = 'Lab1/Python/output.txt'
+inputfile(path1, 1)
+inputfile(path2, 2)
+croutfile(path1, path2, path3)
+printfile(path1)
+printfile(path2)
+printfile(path3)
