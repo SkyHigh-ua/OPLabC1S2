@@ -12,6 +12,7 @@ def croutfile(path1, path2, path3):
     outf = open(path3, 'w')  
     for i in matchlines(path1, path2):
         outf.write(i)  
+    outf.close()
 
 # Пошук однакових рядків
 def matchlines(path1, path2): 
@@ -29,6 +30,11 @@ def lstlines(path):
     lst = file.readlines()
     file.close()
     return lst
+
+# Визначення кількості рядків у файлі
+def filelen(path):
+    with open(path) as file:
+        return len(file.readlines())
 
 # Вивід файлу в консоль
 def printfile(path): 
