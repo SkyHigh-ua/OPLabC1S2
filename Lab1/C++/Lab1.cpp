@@ -1,4 +1,3 @@
-#include <iostream>
 #include "func.h"
 
 int main()
@@ -8,7 +7,7 @@ int main()
     inputfile(path2, 2);
     croutfile(path1, path2, path3);
     int flen = filelen(path3);
-    cout << "Знайдено " << flen << " рядків" << endl;
+    cout << "Кількість знайдених рядків - " << flen << endl;
     printfile(path1);
     printfile(path2);
     printfile(path3);

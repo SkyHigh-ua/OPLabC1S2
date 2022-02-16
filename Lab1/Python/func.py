@@ -3,7 +3,7 @@ def inputfile(path, num):
     file = open(path, "w")
     string = input("Введіть текст " + str(num) + "-го файлу:\n")
     while chr(1) not in string: #Ознака кінця введення файлу Ctrl+A
-        file.write(string+'\n')
+        print(string, file = file)
         string = input()
     file.close()
 
