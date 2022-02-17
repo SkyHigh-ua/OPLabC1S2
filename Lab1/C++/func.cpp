@@ -6,7 +6,7 @@ void inputfile(string path, int num)
     ofstream file(path);
     cout << "Введіть текст " << num << "-го файлу:" << endl;
     getline(cin, str);
-    while(str[str.length()-1] != 1) //Ознака кінця введення файлу Ctrl+A
+    while(str.find(1) == string::npos) //Ознака кінця введення файлу Ctrl+A
     {
         file << str << endl;
         getline(cin, str);
