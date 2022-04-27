@@ -93,15 +93,16 @@ bool strtostruct(string str, customer *cust)
 int years(string date)
 {
     int val[13]={0,31,28,31,30,31,30,31,31,30,31,30,31}; // Кількість днів у кожному місяці року
-    int age, day, mon;
+    int age, day, mon, year;
     int t1=date.find("."), t2=date.find(".", t1+1);
     struct tm inpdate;
     day = stoi(date.substr(0,t1));
     mon = stoi(date.substr(t1+1,t2-t1));
-    if(day < 1 || day > val[mon] || mon < 1 || mon > 12) return -1; 
+    year = stoi(date.substr(t2+1,date.size()-t2));
+    if(day < 1 || day > val[mon] || mon < 1 || mon > 12 || year <= 1900) return -1; 
     inpdate.tm_mday = day;
     inpdate.tm_mon = mon-1;
-    inpdate.tm_year = stoi(date.substr(t2+1,date.size()-t2))-1900;
+    inpdate.tm_year = year-1900;
     inpdate.tm_hour = 0;
     inpdate.tm_min = 0;
     inpdate.tm_sec = 0;

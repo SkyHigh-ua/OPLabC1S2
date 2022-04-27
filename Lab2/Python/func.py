@@ -14,6 +14,8 @@ def inputfile(path):
                 lst = []
             else:
                 lst = lstlines(path) 
+        else:
+            lst = []
     else:
         lst = []
     file = open(path, "wb")
@@ -63,11 +65,13 @@ def strtostruct(string):
 def years(date):
     val = [0,31,28,31,30,31,30,31,31,30,31,30,31]
     tdate = date.split(".")
-    if int(tdate[0])>0 and int(tdate[0])<=val[int(tdate[1])] and int(tdate[1])<13 and int(tdate[1])>0:
-        curdate = datetime.now()
-        inpdate = datetime.strptime(date, "%d.%m.%Y")
-        res = (curdate-inpdate).days
-        return int(res/365.2425)
+    if int(tdate[1])<13 and int(tdate[1])>0:
+        if int(tdate[0])>0 and int(tdate[0])<=val[int(tdate[1])]:
+            curdate = datetime.now()
+            inpdate = datetime.strptime(date, "%d.%m.%Y")
+            res = (curdate-inpdate).days
+            return int(res/365.2425)
+        return -1
     else:
         return -1
 
