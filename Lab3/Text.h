@@ -7,11 +7,11 @@ class Text
 {
     std::vector<std::string> t;
 public:
-    Text();
-    Text(std::string); 
-    void addRow(std::string);
-    std::string GetText();
-    int count();
-    int count(char);
-    void printtxt();
+    Text(); // Конструктор для створення тексту без введеного рядка
+    Text(std::string); // Конструктор для створення тексту за введеним рядком 
+    void addRow(std::string); // Додавання рядка до тексту
+    std::string GetText(); // Повертає текст у вигляді строки
+    int count(); // Підрахунок усіх символів в тексті
+    int count(char); // Підрахунок введеного символу в тексті
+    void printtxt(); // Виведення тексту
 };
