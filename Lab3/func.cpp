@@ -68,6 +68,59 @@ void countintext(Text texts[], int len)
     }
 }
 
+char findmax(Text texts[], int len, int *num)
+{
+    std::vector<int> n;
+    std::vector<char> temp;
+    int tn, indx;
+    std::vector<char> ch;
+    std::string txt;
+    for (int i = 0; i < len; i++)
+    {
+        txt = texts[i].GetText();
+        for (int j = 0; j < txt.size(); j++)
+        {
+            if(txt[j]!=' ')
+            {
+                indx = find(ch, txt[j]);
+                if(indx == -1)
+                {
+                    tn = texts[i].count(txt[j]);
+                    n.push_back(tn);
+                    ch.push_back(txt[j]);
+                    temp.push_back(txt[j]);
+                }
+                else if (find(temp, txt[j])==-1)
+                {
+                    tn = texts[i].count(txt[j]);
+                    n[indx] += tn;
+                    temp.push_back(txt[j]);
+                }
+            }
+        }
+        temp.clear();
+    }
+    tn = max(n);
+    *num = n[tn];
+    return ch[tn];
+}
+
+int find(std::vector<char> chs, char ch)
+{
+    for (int i = 0; i < chs.size(); i++) if(chs[i]==ch) return i;
+    return -1;
+}
+
+int max(std::vector<int> nums)
+{
+    int indx = 0;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if(nums[indx] < nums[i]) indx = i;
+    }
+    return indx;
+}
+
 void print(Text texts[], int len)
 {
     for (int i = 0; i < len; i++)

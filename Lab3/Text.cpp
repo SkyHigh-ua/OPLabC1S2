@@ -15,6 +15,16 @@ void Text::addRow(std::string row)
     this->t.push_back(row);
 }
 
+std::string Text::GetText()
+{
+    std::string txt;
+    for (int i = 0; i < this->t.size(); i++)
+    {
+        txt += this->t[i];
+    }
+    return txt;
+}
+
 int Text::count()
 {
     int res = 0;

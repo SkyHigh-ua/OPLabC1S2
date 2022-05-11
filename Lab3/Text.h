@@ -10,6 +10,7 @@ public:
     Text();
     Text(std::string); 
     void addRow(std::string);
+    std::string GetText();
     int count();
     int count(char);
     void printtxt();
