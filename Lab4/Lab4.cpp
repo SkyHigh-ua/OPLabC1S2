@@ -1,14 +1,14 @@
-#include "Vector.h"
+#include "func.h"
 
 int main()
 {
-    int deg;
-    Vector B1("30,20,20"), B2(50,60,30), B3;
-    std::cout << "Введіть величину на яку збільшити полярний кут = ";
-    std::cin >> deg;
+    int deg, r, phi, thet;
+    std::string str;
+    inputdat(&str, &r, &phi, &thet);
+    Vector B1(str), B2(r, phi, thet), B3;
+    inputdeg(&deg);
     B1+=deg;
     B1.deccord();
-    if(B2!=B3) std::cout << "Вектори не колінеарні" << std::endl;
-    else std::cout << "Вектори колінеарні" << std::endl;
+    findout(B2, B3);
     return 0;
 }
