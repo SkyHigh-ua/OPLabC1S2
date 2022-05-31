@@ -50,12 +50,12 @@ bool valstud(std::string str)
         std::cout << "Некоректно введена дата" << std::endl;
         return false;
     }
-    if(!isnum(words[2]))
+    if(!isnum(words[2], "int"))
     {
         std::cout << "Некоректно вказаний номер групи" << std::endl;
         return false;
     }
-    if(!isnum(words[3]))
+    if(!isnum(words[3], "float"))
     {
         std::cout << "Некоректно введений середній бал" << std::endl;
         return false;
@@ -119,7 +119,7 @@ bool vallec(std::string str)
     }
     for (int i = 3; i < words.size(); i+=2)
     {
-        if(!isnum(words[i]))
+        if(!isnum(words[i], "int"))
         {
             std::cout << "Некоректно введена кількість годин" << std::endl;
             return false;
@@ -144,13 +144,23 @@ bool dateval(std::string date)
     return true;
 }
 
-bool isnum(std::string str)
+bool isnum(std::string str, std::string type)
 {
     for (int i = 0; i < str.size(); i++)
     {
-        if(!std::isdigit(str[i]) && str[i]!='.')
+        if(type=="int")
         {
-            return false;
+            if(!std::isdigit(str[i]))
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if(!std::isdigit(str[i])&& str[i]!='.')
+            {
+                return false;
+            }
         }
     }
     return true;

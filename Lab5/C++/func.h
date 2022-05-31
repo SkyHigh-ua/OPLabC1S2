@@ -8,7 +8,7 @@ Lecturer *crlect(int *); // Створення масиву викладачів
 bool valstud(std::string); // Валідація рядку, що описує студента
 bool vallec(std::string); // Валідація рядку, що описує викладача
 bool dateval(std::string); // Перевірка коректності введеної дати
-bool isnum(std::string); // Перевірка - чи є рядок числом
+bool isnum(std::string, std::string); // Перевірка - чи є рядок числом
 void print(Student *, int); // Виведення студентів
 void print(Lecturer *, int); // Виведення икладачів
 void calcsc(Student *, int); // Підрахунок стипендії студентів
