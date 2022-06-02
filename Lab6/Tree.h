@@ -14,14 +14,12 @@ struct Branch
 class Tree
 {
     Branch *root;
-    Branch *add(char, Branch *);
-    void printleafs(Branch *);
-    void print(Branch *);
-    void printbylvl(int, Branch *);
-    void remove(Branch *);
+    Branch *add(char, Branch *); // Додавання елементу до дерева
+    void printleafs(Branch *); // Знаходження і виведення термінальних вершин
+    void print(Branch *, int); // Виведення дерева
+    void remove(Branch *); // Видалення дерева
 public:
     Tree(std::string);
-    int height(Branch *);
     void printleafs();
     void print();
     ~Tree();

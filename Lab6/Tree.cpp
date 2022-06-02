@@ -25,20 +25,9 @@ Branch *Tree::add(char tData, Branch *node)
     return node;
 }
 
-int Tree::height(Branch *node)
-{
-    int ln = 0, rn = 0;
-    if(node) 
-    {
-        if(node->Left) ln = height(node->Left);
-        if(node->Right) rn = height(node->Right);
-    }
-    return std::max(ln,rn)+1;
-}
-
 void Tree::print()
 {
-    print(this->root);
+    print(this->root, 0);
 }
 
 void Tree::printleafs()
@@ -46,27 +35,16 @@ void Tree::printleafs()
     printleafs(this->root);
 }
 
-void Tree::print(Branch *node)
+void Tree::print(Branch *node, int n)
 {
-    int h = height(node);
-    int i;
-    for (i=1; i<=h; i++)
+    if (node)
     {
-        printbylvl(i, node);
-        std::cout << std::endl;
-    }
-}
-
-void Tree::printbylvl(int lvl, Branch *node)
-{
-    if(node)
-    {
-        if (lvl == 1) std::cout << node->Data << " ";
-        else if (lvl > 1)
-        {
-            printbylvl(lvl-1, node->Left);
-            printbylvl(lvl-1, node->Right);
-        }
+        n++;
+        print(node->Left, n);
+        for (int i = 0; i < n; i++) std::cout << "  ";
+        std::cout << node->Data << std::endl;
+        print(node->Right, n);
+        n--;
     }
 }
 
